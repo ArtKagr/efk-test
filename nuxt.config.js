@@ -2,6 +2,8 @@ module.exports = {
   /*
   ** Headers of the page
   */
+  mode: 'spa',
+  target: 'server',
   head: {
     title: 'efk-test',
     meta: [
@@ -12,6 +14,19 @@ module.exports = {
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
+  },
+  modules: [
+    'bootstrap-vue/nuxt',
+    '@nuxtjs/axios',
+  ],
+  axios: {
+    // prefix: '/api/',
+    baseURL: 'https://swapi.dev',
+  },
+  bootstrapVue: {
+    icons: true,
+    bootstrapCSS: false,
+    bootstrapVueCSS: false,
   },
   /*
   ** Customize the progress bar color

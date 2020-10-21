@@ -1,0 +1,37 @@
+<template>
+  <b-navbar toggleable="lg" type="light" class="bg-white d-flex flex-column align-items-center">
+    <b-navbar-brand href="#" class="m-0 mb-4">
+      <b-icon-circle-fill class="m-0 h1" variant="info"></b-icon-circle-fill>
+    </b-navbar-brand>
+    <b-collapse id="nav-collapse" class="d-flex flex-column align-items-center" is-nav>
+      <b-navbar-nav class="d-flex flex-column">
+        <b-nav-item
+          v-for="(link, key) in menuItems"
+          :key="key"
+          :to="{ name: `${link.page}-manage` }"
+          class="mb-2"
+        >
+          <div class="d-flex flex-column align-items-center w-100">
+            <b-icon-film v-if="link.page === 'films'" class="m-0 custom_icon-header"></b-icon-film>
+            <b-icon-person v-else-if="link.page === 'people'" class="m-0 custom_icon-header"></b-icon-person>
+            <span class="mt-1 menu_title">{{ link.title }}</span>
+          </div>
+        </b-nav-item>
+      </b-navbar-nav>
+    </b-collapse>
+  </b-navbar>
+</template>
+
+<script>
+export default {
+  name: "Header",
+  data() {
+    return {
+      menuItems: [
+        { page: 'films', title: 'Фильмы' },
+        { page: 'people', title: 'Актёры' },
+      ],
+    }
+  },
+}
+</script>
